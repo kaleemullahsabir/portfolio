@@ -94,23 +94,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Navbar Background on Scroll
-window.addEventListener('scroll', function() {
+function updateNavbarBackground() {
     const navbar = document.getElementById('navbar');
     const currentTheme = body.getAttribute('data-theme');
-    
+
     if (window.scrollY > 50) {
         if (currentTheme === 'light') {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
+            // Light mode => navbar dark
             navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+        } else {
+            // Dark mode => navbar light
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
         }
     } else {
         if (currentTheme === 'light') {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        } else {
+            // Light mode => navbar dark
             navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+        } else {
+            // Dark mode => navbar light
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
         }
     }
+}
+
+// Call on scroll
+window.addEventListener('scroll', updateNavbarBackground);
+
+// Call on page load
+window.addEventListener('load', updateNavbarBackground);
+
+// Call on theme toggle (after theme change)
+themeToggle.addEventListener('click', () => {
+    setTimeout(updateNavbarBackground, 50);
 });
 
 // Skills Animation
