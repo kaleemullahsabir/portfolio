@@ -12,6 +12,7 @@
     --card-bg: #1e293b;
     --input-bg: #334155;
     --shadow: rgba(0, 0, 0, 0.3);
+    --nav-text: #1e293b;
 }
 
 [data-theme="light"] {
@@ -28,6 +29,7 @@
     --card-bg: #ffffff;
     --input-bg: #f1f5f9;
     --shadow: rgba(0, 0, 0, 0.1);
+      --nav-text: #ffffff;
 }
 
 * {

@@ -125,7 +125,7 @@ window.addEventListener('load', updateNavbarBackground);
 
 // Call on theme toggle (after theme change)
 themeToggle.addEventListener('click', () => {
-    setTimeout(updateNavbarBackground, 50);
+    setTimeout(updateNavbarBackground, 50);
 });
 
 // Skills Animation
