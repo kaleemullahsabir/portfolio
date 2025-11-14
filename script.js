@@ -458,3 +458,44 @@ window.addEventListener('load', function() {
 
 
 //nave bar
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // UI Elements
+    const submitBtn = document.getElementById("submitBtn");
+    const btnText = submitBtn.querySelector(".btn-text");
+    const btnLoading = submitBtn.querySelector(".btn-loading");
+    const formMessage = document.getElementById("formMessage");
+
+    // Show loading
+    btnText.style.display = "none";
+    btnLoading.style.display = "inline-block";
+
+    const formData = new FormData(this);
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            formMessage.innerHTML = "Your message has been sent successfully!";
+            formMessage.style.color = "green";
+            this.reset();
+        } else {
+            formMessage.innerHTML = "Something went wrong. Please try again!";
+            formMessage.style.color = "red";
+        }
+
+    } catch (error) {
+        formMessage.innerHTML = "Network error. Please try again later!";
+        formMessage.style.color = "red";
+    }
+
+    // Hide loading and restore button
+    btnText.style.display = "inline-block";
+    btnLoading.style.display = "none";
+});
