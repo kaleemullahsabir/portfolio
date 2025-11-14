@@ -47,7 +47,7 @@ body {
     transition: all 0.3s ease;
 }
 
-/*moving usama name*/
+/*moving kaleem name*/
     /* ----------------Moving Background Text Animation - BETTER VERSION----------- */
 .moving-bg {
     position: fixed;
@@ -166,7 +166,7 @@ body {
         letter-spacing: 0.5rem;
     }
 }
-/*--------end css usama name----------*/
+/*--------end css kaleem name----------*/
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -1025,6 +1025,11 @@ body {
     .education-body h3 {
         font-size: 1.2rem;
     }
+}
+
+/* Fix hover overlapping for education section */
+.education-card {
+    margin-bottom: 20px;
 }
 
 /* Services Section ---------------------------------------------------Section 5*/
